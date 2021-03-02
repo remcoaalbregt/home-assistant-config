@@ -1,0 +1,22 @@
+---
+alias: Mark person as just left
+id: 5FBADCDA-7F96-4C15-8E3E-0845818037DC
+trigger:
+  - platform: state
+    entity_id: person.remco
+    from: 'home'
+    to: 'not_home'
+  - platform: state
+    entity_id: person.miriam
+    from: 'home'
+    to: 'not_home'
+action:
+  - service: input_select.select_option
+    data_template:
+      entity_id: >
+        {% if trigger.entity_id == 'person.remco' %}
+          input_select.remco_status_dropdown
+        {% else %}
+          input_select.miriam_status_dropdown
+        {% endif %}
+      option: Just Left

@@ -1,0 +1,7 @@
+---
+platform: group
+name: kantoor_driespot
+entities:
+  - light.0x588e81fffe02784d
+  - light.0x680ae2fffec6edb7
+  - light.0x680ae2fffef9f616

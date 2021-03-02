@@ -1,0 +1,4 @@
+---
+mqtt:
+  discovery: true
+  broker: !secret MQTT_HOST

@@ -1,0 +1,4 @@
+---
+sensor.afvalinfo_gft:
+  icon: mdi:leaf
+  friendly_name: GFT

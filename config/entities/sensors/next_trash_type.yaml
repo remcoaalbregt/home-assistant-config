@@ -1,0 +1,37 @@
+---
+platform: template
+sensors:
+  afvalinfo_next_trash_type:
+    value_template: >
+      {% set ns = namespace(minimum=365) %}
+      {% set list = ['gft', 'papier', 'pbd'] %}
+      {%- for t in list %}
+        {%- set days = state_attr(
+          'sensor.afvalinfo_' ~t,
+          'days_until_collection_date'
+        )%}
+        {%- if days != None and days < ns.minimum %}
+          {%- set ns.minimum = days %}
+        {%- endif %}
+      {%- endfor %}
+      {%- for t in list %}
+        {%- set days = state_attr(
+          'sensor.afvalinfo_' ~t,
+          'days_until_collection_date'
+        )%}
+        {%- if days == ns.minimum %}
+          {{t}}
+        {%- endif %}
+      {%- endfor %}
+    attribute_templates:
+      date: "{{ states(
+        'sensor.afvalinfo_' ~ states.sensor.afvalinfo_next_trash_type.state
+      ) }}"
+    icon_template: >-
+      {% if is_state('sensor.afvalinfo_next_trash_type', 'pbd') %}
+        mdi:bottle-soda-classic-outline
+      {% elif is_state('sensor.afvalinfo_next_trash_type_and_date', 'papier') %}
+        mdi:note-multiple-outline
+      {% elif is_state('sensor.afvalinfo_next_trash_type_and_date', 'gft') %}
+        mdi:leaf
+      {% endif %}

@@ -1,0 +1,32 @@
+---
+alias: Mark person as home
+id: E08937CA-F694-459B-B3AA-5A0D25373934
+trigger:
+  - platform: state
+    entity_id: input_select.remco_status_dropdown
+    to: 'Just Arrived'
+    for:
+      minutes: 10
+  - platform: state
+    entity_id: input_select.miriam_status_dropdown
+    to: 'Just Arrived'
+    for:
+      minutes: 10
+  - platform: state
+    entity_id: input_select.remco_status_dropdown
+    from: 'Just Left'
+    to: 'Just Arrived'
+  - platform: state
+    entity_id: input_select.miriam_status_dropdown
+    from: 'Just Left'
+    to: 'Just Arrived'
+action:
+  - service: input_select.select_option
+    data_template:
+      entity_id: >
+        {% if trigger.entity_id == 'input_select.remco_status_dropdown' %}
+          input_select.remco_status_dropdown
+        {% else %}
+          input_select.miriam_status_dropdown
+        {% endif %}
+      option: Home

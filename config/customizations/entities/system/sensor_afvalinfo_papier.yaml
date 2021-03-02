@@ -1,0 +1,4 @@
+---
+sensor.afvalinfo_papier:
+  icon: mdi:note-multiple-outline
+  friendly_name: Papier

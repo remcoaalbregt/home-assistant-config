@@ -1,0 +1,9 @@
+---
+id: 20E77A48-0147-40EC-9D80-3F42609F7787
+name: Kantoor werk
+icon: mdi:briefcase
+entities:
+  light.kantoor_driespot:
+    brightness: 254
+    color_temp: 153
+    state: 'on'

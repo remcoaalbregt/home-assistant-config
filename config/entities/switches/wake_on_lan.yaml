@@ -1,0 +1,8 @@
+---
+platform: wake_on_lan
+name: PC
+mac: !secret PC_REMCO_MAC
+host: !secret PC_REMCO_HOST
+broadcast_address: !secret PC_REMCO_BROADCAST_ADDRESS
+turn_off:
+  service: shell_command.turn_off_pc

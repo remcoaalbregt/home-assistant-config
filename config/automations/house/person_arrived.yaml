@@ -1,0 +1,35 @@
+---
+alias: Mark person as just arrived
+id: 1283D7F2-3A5C-4B2C-B450-2B85936584E4
+trigger:
+  - platform: state
+    entity_id: person.remco
+    from: 'not_home'
+    to: 'home'
+  - platform: state
+    entity_id: person.miriam
+    from: 'not_home'
+    to: 'home'
+action:
+  - service: input_select.select_option
+    data_template:
+      entity_id: >
+        {% if trigger.entity_id == 'person.remco' %}
+          input_select.remco_status_dropdown
+        {% else %}
+          input_select.miriam_status_dropdown
+        {% endif %}
+      option: >
+        {% if trigger.entity_id == 'person.remco' %}
+          {% if is_state('input_select.remco_status_dropdown', 'Just Left') %}
+            Home
+          {% else %}
+            Just Arrived
+          {% endif %}
+        {% else %}
+          {% if is_state('input_select.miriam_status_dropdown', 'Just Left') %}
+            Home
+          {% else %}
+            Just Arrived
+          {% endif %}
+        {% endif %}

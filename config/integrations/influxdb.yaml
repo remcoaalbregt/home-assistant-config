@@ -1,0 +1,15 @@
+---
+# The influxdb integration makes it possible to transfer all state changes to
+# an external InfluxDB database.
+#
+# https://www.home-assistant.io/integrations/influxdb
+#
+influxdb:
+  host: !secret INFLUX_HOST
+  port: 8086
+  database: !secret INFLUX_DATABASE
+  username: !secret INFLUX_USERNAME
+  password: !secret INFLUX_PASSWORD
+  max_retries: 3
+  tags_attributes:
+    - device_class

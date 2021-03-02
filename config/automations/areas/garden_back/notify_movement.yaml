@@ -1,0 +1,20 @@
+---
+description: Send notification on movement
+alias: garden_back_movement
+id: 123412-3432-2342-6546-233c-636345634
+trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_g3_flex
+    to: 'on'
+condition: []
+action:
+  - service: camera.snapshot
+    data:
+      filename: /config/www/backyard.jpg
+    entity_id: camera.g3_flex
+  - service: telegram_bot.send_photo
+    data:
+      file: /config/www/uploads/backyard.jpg
+      disable_notification: true
+      caption: Beweging in de achtertuin
+mode: single

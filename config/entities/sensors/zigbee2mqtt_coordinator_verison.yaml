@@ -1,0 +1,7 @@
+---
+# Sensor for Showing the Coordinator Version
+platform: mqtt
+name: Coordinator Version
+state_topic: "zigbee2mqtt/bridge/config"
+value_template: "{{ value_json.coordinator }}"
+icon: mdi:chip

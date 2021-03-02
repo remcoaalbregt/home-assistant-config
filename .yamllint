@@ -1,0 +1,22 @@
+---
+ignore: |
+  config/custom_components/
+  config/automations.yaml
+  config/scenes.yaml
+
+extends: default
+
+rules:
+  comments:
+    level: error
+    require-starting-space: true
+    min-spaces-from-content: 2
+  comments-indentation:
+    level: error
+  document-start:
+    level: error
+    present: true
+    ignore: |
+      config/known_devices.yaml
+  truthy:
+    level: error

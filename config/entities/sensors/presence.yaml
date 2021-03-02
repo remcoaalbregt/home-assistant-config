@@ -1,0 +1,9 @@
+---
+platform: template
+sensors:
+  remco_status:
+    value_template: '{{ states.input_select.remco_status_dropdown.state }}'
+    friendly_name: 'Remco'
+  miriam_status:
+    value_template: '{{ states.input_select.miriam_status_dropdown.state }}'
+    friendly_name: 'Miriam'

@@ -1,0 +1,3 @@
+---
+pi_hole:
+  - host: !secret PIHOLE_HOST

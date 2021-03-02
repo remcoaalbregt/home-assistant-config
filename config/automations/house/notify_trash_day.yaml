@@ -1,0 +1,20 @@
+---
+# Send a notification in the evening the day before trash day with the type of
+# trash that's being collected.
+#
+# todo: send message only when home, otherwise when arriving home
+#
+alias: Send notification to take out the right type of trash
+id: 3047CD43-9EC8-4F5D-9AF4-D79C111ABE11
+trigger:
+  - platform: time
+    at: "20:00:00"
+condition:
+  condition: template
+  value_template: "{{ not(is_state('sensor.afvalinfo_tomorrow', 'none')) }}"
+action:
+  - service: telegram_bot.send_message
+    data:
+      message: >-
+        Het {{ states.sensor.afvalinfo_tomorrow.state }}-afval
+        wordt morgen opgehaald.

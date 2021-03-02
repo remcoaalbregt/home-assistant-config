@@ -1,0 +1,17 @@
+---
+# Home Assistant sensor component for waste collectors in the Netherlands
+#
+# https://github.com/heyajohnny/afvalinfo
+#
+platform: afvalinfo
+resources:
+  - gft
+  - pbd
+  - papier
+  - trash_type_today
+  - trash_type_tomorrow
+location: !secret LOCATION_HOME_CITY
+postcode: !secret LOCATION_HOME_POSTALCODE
+streetnumber: !secret LOCATION_HOME_HOUSENUMBER
+dateformat: '%d-%m-%Y'
+locale: 'nl'

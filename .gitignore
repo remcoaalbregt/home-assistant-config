@@ -1,0 +1,18 @@
+*.log
+*.db
+*.db-shm
+*.db-wal
+*.pyc
+._*
+__pycache__
+
+config/.cloud
+config/.storage
+config/deps
+config/secrets.yaml
+config/known_devices.yaml
+config/www/uploads/*
+!config/www/uploads
+
+# IDE
+.vscode

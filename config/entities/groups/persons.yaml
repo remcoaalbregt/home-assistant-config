@@ -1,0 +1,6 @@
+---
+persons:
+  name: persons
+  entities:
+    - person.remco
+    - person.miriam

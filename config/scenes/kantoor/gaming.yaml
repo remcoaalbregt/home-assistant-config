@@ -1,0 +1,9 @@
+---
+id: 8EFAD782-DA8F-4295-8BB1-513E8E722414
+name: Kantoor gaming
+icon: mdi:controller-classic
+entities:
+  light.kantoor_driespot:
+    brightness: 150
+    color_temp: 330
+    state: 'on'

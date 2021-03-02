@@ -1,0 +1,4 @@
+---
+sensor.afvalinfo_pbd:
+  icon: mdi:bottle-soda-classic-outline
+  friendly_name: Plastic, blik en drankkarton

@@ -1,0 +1,9 @@
+---
+# The Spotify media player integration allows you to control Spotify playback
+# from Home Assistant.
+#
+# https://www.home-assistant.io/integrations/spotify/
+#
+spotify:
+  client_id: !secret SPOTIFY_ID
+  client_secret: !secret SPOTIFY_SECRET

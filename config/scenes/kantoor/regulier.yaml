@@ -1,0 +1,9 @@
+---
+id: 7F6621E2-1A2F-4E68-9055-42C33E2DEAE8
+name: Kantoor regulier
+icon: mdi:palette
+entities:
+  light.kantoor_driespot:
+    brightness: 254
+    color_temp: 330
+    state: 'on'

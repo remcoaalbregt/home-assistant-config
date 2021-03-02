@@ -1,0 +1,24 @@
+---
+alias: Mark person as away
+id: 157F762A-6BDA-46EF-B323-1AED4123ACDE
+trigger:
+  - platform: state
+    entity_id: input_select.remco_status_dropdown
+    to: 'Just Left'
+    for:
+      minutes: 10
+  - platform: state
+    entity_id: input_select.miriam_status_dropdown
+    to: 'Just Left'
+    for:
+      minutes: 10
+action:
+  - service: input_select.select_option
+    data_template:
+      entity_id: >
+        {% if trigger.entity_id == 'input_select.remco_status_dropdown' %}
+          input_select.remco_status_dropdown
+        {% else %}
+          input_select.miriam_status_dropdown
+        {% endif %}
+      option: Away

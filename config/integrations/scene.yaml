@@ -1,0 +1,9 @@
+---
+# You can create scenes that capture the states you want certain entities to be.
+# For example, a scene can specify that light A should be turned on and light B
+# should be bright red.
+#
+# https://www.home-assistant.io/integrations/scene
+#
+scene: !include ../scenes.yaml
+scene split: !include_dir_list ../scenes

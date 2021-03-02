@@ -1,0 +1,4 @@
+---
+name: notify-remco
+platform: telegram
+chat_id: !secret TELEGRAM_ID_REMCO
